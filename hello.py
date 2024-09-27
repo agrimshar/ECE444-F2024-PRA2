@@ -28,7 +28,7 @@ def index():
         if old_email is not None and old_email != form.email.data:
             flash('Looks like you have changed your email!')
         session['name'] = form.name.data
-        if "mail.utoronto.ca" in form.email.data or "ece.utoronto.ca" in form.email.data:
+        if form.email.data.endswith("mail.utoronto.ca") or form.email.data.endswith("ece.utoronto.ca"):
             session['email'] = form.email.data
         else:
             session['email'] = "Please use your UofT email."
